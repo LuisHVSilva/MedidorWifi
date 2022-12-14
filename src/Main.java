@@ -27,7 +27,8 @@ public class Main {
 
         System.out.println("\n---------Teste de Velocidade para Download---------");
         Download dwn = new Download();
-        //System.out.printf("Velocidade de dwonload: %f\n", dwn.velocity());
-        System.out.println(dwn.velocity());
+        System.out.println("O teste de download é feito com o download de 4 imagens maiores que 40 Kbp");
+        System.out.printf("Velocidade de média de download: %f\n", dwn.velocity());
+
     }
 }
