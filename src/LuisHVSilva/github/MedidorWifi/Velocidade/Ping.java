@@ -26,7 +26,7 @@ public class Ping extends Constants {
 
         try {
             for (int i = 1; i <= iteration; i++) {
-                InetAddress address = InetAddress.getByName(PING_URL);
+                InetAddress address = InetAddress.getByName(URL_PING);
 
                 if (address.isReachable(5000)) {
 

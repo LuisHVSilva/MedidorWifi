@@ -11,12 +11,9 @@ public class Main {
         IPName ipName = new IPName();
         ipName.MapName();
 
-        BiFunction<Double, Double, Double> velocityCalc = (x, y) -> x / y;
-
-
-        Ping ping = new Ping();
 
         System.out.println("---------Teste de ping---------");
+        Ping ping = new Ping();
         Map<String, Integer> ping_list = ping.ping_velocity();
 
         System.out.printf("Estatística do Ping: \n Enviados = %d; Recebidos = %d; Perdidos = %d\n"
@@ -30,10 +27,11 @@ public class Main {
 
 
         System.out.println("\n---------Teste de Velocidade para Download---------");
-        Download download = new Download();
-        download.teste();
+        Download dwn = new Download();
+        System.out.printf("Velocidade de dwonload: %f\n", dwn.velocity());
 
-        System.out.printf("A velocidade da rede é: %.2fMbps",
-                velocityCalc.apply(download.getMegaBites(), download.getExpendTime()));
+
     }
+
+
 }
