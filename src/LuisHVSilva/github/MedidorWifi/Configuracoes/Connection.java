@@ -9,9 +9,9 @@ import java.net.URL;
 
 public class Connection extends Constants {
 
-    public URL Response() throws IOException {
+    public URL Response(String x) throws IOException {
         try {
-            URL url = new URL(URL_DOWNLOAD);
+            URL url = new URL(x);
             HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
 
             if (conexao.getResponseCode() != HTTPResponse) //Código de sucesso de conexão = 200.

@@ -10,9 +10,32 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
 public class Download extends Constants {
-    double spendTime() throws IOException {
-        Connection con = new Connection();
-        URL url = con.Response();
+    Connection con = new Connection();
+
+    public double velocity() throws IOException {
+        double vel_media = 0.0;
+        int iterator = 0;
+
+        for (String url_string: URL_DOWNLOAD) {
+            URL url = con.Response(url_string);
+            double time = spendTime(url);
+            double size = sizeFile();
+            vel_media += size/time;
+            iterator++;
+
+            System.out.println("\nTeste número " + iterator);
+
+            /*System.out.printf("Tamanho do arquivo : %.2f Megabites\n", size);
+            System.out.printf("Tempo gasto para download: %.2f segundos\n", time);
+            System.out.println("Velocidade do arquivo: " + size/time);
+            System.out.println("Velocidade média: " + vel_media/iterator);*/
+        }
+
+        return vel_media/iterator;
+    }
+
+
+    double spendTime(URL url) throws IOException {
 
         FileOutputStream path = new FileOutputStream(FILE);
         ReadableByteChannel bytes = Channels.newChannel(url.openStream());
@@ -31,12 +54,5 @@ public class Download extends Constants {
         FILE.deleteOnExit();
 
         return fileSize;
-    }
-
-    public double velocity() throws IOException {
-        double time = spendTime();
-        double size = sizeFile();
-
-        return size/time;
     }
 }
