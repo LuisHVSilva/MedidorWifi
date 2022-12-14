@@ -1,3 +1,4 @@
+import LuisHVSilva.github.MedidorWifi.MapIP.IPName;
 import LuisHVSilva.github.MedidorWifi.Velocidade.Download;
 import LuisHVSilva.github.MedidorWifi.Velocidade.Ping;
 
@@ -7,6 +8,8 @@ import java.util.function.BiFunction;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        IPName ipName = new IPName();
+        ipName.MapName();
 
         BiFunction<Double, Double, Double> velocityCalc = (x, y) -> x / y;
 
