@@ -17,7 +17,7 @@ public class Download extends Constants {
         int iterator = 0;
 
         for (String url_string: URL_DOWNLOAD) {
-            URL url = con.Response(url_string);
+            URL url = con.response(url_string);
             double time = spendTime(url);
             double size = sizeFile();
             vel_media += size/time;
@@ -33,8 +33,6 @@ public class Download extends Constants {
 
         return vel_media/iterator;
     }
-
-
     double spendTime(URL url) throws IOException {
 
         FileOutputStream path = new FileOutputStream(FILE);

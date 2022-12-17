@@ -9,13 +9,13 @@ import java.net.URL;
 
 public class Connection extends Constants {
 
-    public URL Response(String x) throws IOException {
+    public URL response(String x) throws IOException {
         try {
             URL url = new URL(x);
-            HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            if (conexao.getResponseCode() != HTTPResponse) //Código de sucesso de conexão = 200.
-                throw new RuntimeException("HTTP error code: " + conexao.getResponseCode());
+            if (connection.getResponseCode() != HTTPResponse) //Código de sucesso de conexão = 200.
+                throw new RuntimeException("HTTP error code: " + connection.getResponseCode());
 
             return url;
 

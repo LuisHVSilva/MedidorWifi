@@ -11,10 +11,8 @@ import java.util.Map;
 public class Ping extends Constants {
     private final static int iteration = 4;
 
-
-    public Map<String, Integer> ping_velocity() {
+    public Map<String, Integer> pingVelocity() {
         int media = 0;
-        int millis;
 
         Map<String, Integer> ping_list = new HashMap<>();
         ping_list.put("Enviados", iteration);
@@ -33,7 +31,7 @@ public class Ping extends Constants {
                     long nanos = System.nanoTime();
                     address.isReachable(500); // this invocation is the offender
 
-                    millis = Math.toIntExact(Math.round((System.nanoTime() - nanos) / Math.pow(10, 6)));
+                    int millis = Math.toIntExact(Math.round((System.nanoTime() - nanos) / Math.pow(10, 6)));
                     media += millis;
 
                     Thread.sleep(Math.max(0, 1000 - millis));
